@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Agnaldo Batista - Software Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        primary: '#1d4ed8',
+                        secondary: '#475569',
+                        border: '#e2e8f0',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @media print {
+            body { background-color: white; color: black; }
+            .no-print { display: none !important; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            html, body { height: 100%; overflow: hidden; }
+            main { height: 100vh !important; margin: 0 !important; width: 100% !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 font-sans text-slate-900 leading-relaxed">
+
+    <!-- Botão Flutuante -->
+    <div class="fixed bottom-6 right-6 no-print z-50">
+        <button onclick="window.print()" class="bg-dark hover:bg-black text-white font-bold py-3 px-6 rounded shadow-lg transition-all flex items-center gap-2 font-mono text-sm border border-slate-700">
+            <i class="fas fa-print"></i> Imprimir PDF
+        </button>
+    </div>
+
+    <!-- Página A4 -->
+    <main class="max-w-[210mm] mx-auto my-6 bg-white shadow-lg h-[297mm] overflow-hidden relative print:my-0 flex flex-col">
+        
+        <!-- Cabeçalho -->
+        <header class="bg-white px-8 py-6 border-b-2 border-slate-100 flex justify-between items-center shrink-0">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-1">Agnaldo Batista</h1>
+                <p class="font-mono text-xs text-primary font-bold mb-2 tracking-wide uppercase">
+                    Software Developer | Front-end, Python & IA no Desenvolvimento
+                </p>
+                <div class="flex gap-4 text-xs font-medium text-slate-600">
+                    <a href="https://github.com/vitaledev" target="_blank" class="hover:text-primary transition flex items-center gap-1.5">
+                        <i class="fab fa-github text-base"></i> vitaledev
+                    </a>
+                    <a href="https://www.linkedin.com/in/agnaldo-silva-a6616b248/" target="_blank" class="hover:text-primary transition flex items-center gap-1.5">
+                        <i class="fab fa-linkedin text-base text-primary"></i> agnaldo-silva
+                    </a>
+                    <a href="mailto:agnaldotgt@gmail.com" class="hover:text-primary transition flex items-center gap-1.5">
+                        <i class="fas fa-envelope text-base"></i> agnaldotgt@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="text-right hidden sm:block">
+                 <div class="bg-slate-50 border border-slate-200 px-3 py-2 rounded text-[10px] text-slate-700 text-right">
+                    <p class="font-bold mb-0.5"><i class="fas fa-map-marker-alt text-primary mr-1"></i> Goiânia</p>
+                    <p class="text-green-700 font-semibold"><i class="fas fa-check-circle mr-1"></i> Disponibilidade Imediata</p>
+                 </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-12 flex-grow h-full overflow-hidden">
+            
+            <!-- Sidebar: Tech Spec -->
+            <aside class="col-span-4 bg-slate-50 p-5 border-r border-slate-200 flex flex-col gap-6 overflow-y-auto">
+                
+                <!-- Hard Skills (Clean List Format) -->
+                <div>
+                    <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-2 border-b border-slate-200 pb-1">
+                        <i class="fas fa-laptop-code text-slate-700"></i> Tech Stack
+                    </h3>
+                    
+                    <div class="mb-3">
+                        <p class="text-[9px] font-bold text-slate-800 mb-1 uppercase tracking-wide">Front-end & UI</p>
+                        <p class="text-[10px] text-slate-600 leading-relaxed font-medium">
+                            HTML5 • CSS3 • JavaScript • TypeScript • React • Vite • Tailwind CSS
+                        </p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p class="text-[9px] font-bold text-slate-800 mb-1 uppercase tracking-wide">Python & Automação</p>
+                        <p class="text-[10px] text-slate-600 leading-relaxed font-medium">
+                            Python 3 • Streamlit • Pandas • yt-dlp • Integrações com APIs
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[9px] font-bold text-slate-800 mb-1 uppercase tracking-wide">IA & Ferramentas</p>
+                        <p class="text-[10px] text-slate-600 leading-relaxed font-medium">
+                            Gemini API (AI Studio) • Prompt Engineering • Git/GitHub
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Educação -->
+                <div>
+                    <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2 border-b border-slate-200 pb-1">
+                        <i class="fas fa-graduation-cap text-slate-700"></i> Education
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <h4 class="text-xs font-bold text-slate-900">Análise e Desenv. Sistemas</h4>
+                            <p class="text-[10px] text-slate-600">PUC - Pontifícia Univ. Católica</p>
+                            <p class="text-[9px] text-slate-500 uppercase font-semibold mt-0.5">Cursando</p>
+                        </li>
+                        <li>
+                            <h4 class="text-xs font-bold text-slate-900">Relações Internacionais</h4>
+                            <p class="text-[10px] text-slate-600">UNIP - Universidade Paulista</p>
+                            <p class="text-[9px] text-slate-500 uppercase font-semibold mt-0.5">Cursando</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Idiomas (Movido para cima) -->
+                <div>
+                    <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-2 border-b border-slate-200 pb-1">
+                        <i class="fas fa-globe text-slate-700"></i> Languages
+                    </h3>
+                    <div class="space-y-1.5 text-[10px]">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-700">Inglês</span>
+                            <span class="text-slate-600 bg-slate-200 px-1.5 rounded font-medium">C1 (Avançado)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-700">Espanhol</span>
+                            <span class="text-slate-600 bg-slate-200 px-1.5 rounded font-medium">B2 (Intermed.)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-700">Português</span>
+                            <span class="text-slate-600 bg-slate-200 px-1.5 rounded font-medium">Nativo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificações -->
+                <div class="flex-grow">
+                    <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2 border-b border-slate-200 pb-1">
+                        <i class="fas fa-certificate text-slate-700"></i> Certifications
+                    </h3>
+                    <ul class="space-y-2.5 text-[10px] text-slate-700">
+                        <li class="border-l-[3px] border-primary pl-3">
+                            <strong class="block text-slate-900 text-xs mb-0.5">IFRS - Instituto Federal</strong>
+                            <span class="block text-slate-600">• Programador Web</span>
+                            <span class="block text-slate-600">• Prog. Orientada a Objetos</span>
+                            <span class="block text-slate-600">• Banco de Dados & SQL</span>
+                            <span class="block text-slate-600">• Lógica de Programação</span>
+                        </li>
+                        <li class="border-l-[3px] border-slate-700 pl-3">
+                            <strong class="block text-slate-900 text-xs mb-0.5"><i class="fab fa-free-code-camp"></i> FreeCodeCamp</strong>
+                            <span class="block text-slate-600">• Back End Development</span>
+                            <span class="block text-slate-600">• Information Security</span>
+                            <span class="block text-slate-600">• Data Analysis with Python</span>
+                        </li>
+                        <li class="border-l-[3px] border-slate-300 pl-3">
+                            <strong class="text-slate-900">Harvard CS50:</strong> Intro to CS
+                        </li>
+                        <li class="border-l-[3px] border-slate-300 pl-3">
+                            <strong class="text-slate-900">AWS:</strong> Cloud Practitioner
+                        </li>
+                        <li class="border-l-[3px] border-slate-300 pl-3">
+                            <strong class="text-slate-900">FGV:</strong> Cibersegurança
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+
+            <!-- Main Content: Experience & Projects (8 colunas) -->
+            <section class="col-span-8 p-6 flex flex-col gap-5 overflow-y-auto">
+                
+                <!-- Resumo -->
+                <div class="bg-blue-50 border-l-4 border-primary p-3 rounded-r-lg shrink-0">
+                    <p class="text-xs text-slate-700 leading-relaxed text-justify">
+                        Desenvolvedor de software com foco em <strong>front-end</strong> e <strong>automação em Python</strong>. Crio aplicações web responsivas e ferramentas de produtividade, integrando <strong>IA</strong> (Gemini API/AI Studio) e <strong>prompt engineering</strong> para prototipar, validar ideias e acelerar entregas. Combino perfil analítico e estratégico (Relações Internacionais) com rigor técnico para construir experiências digitais claras e eficientes.
+                    </p>
+                </div>
+
+                <!-- 5 Projetos Estratégicos -->
+                <div class="shrink-0">
+                    <h2 class="text-sm font-bold text-slate-900 border-b-2 border-slate-200 pb-2 mb-3 flex items-center justify-between">
+                        <span><i class="fas fa-code-branch text-primary mr-2"></i> Portfólio de Projetos</span>
+                        <span class="text-[10px] font-normal text-slate-500 font-mono bg-slate-100 px-2 py-0.5 rounded">github.com/vitaledev</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Projeto 1 -->
+                        <div class="group">
+                            <div class="flex justify-between items-start mb-0.5">
+                                <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                    YT Link Extractor Pro
+                                </h3>
+                                <div class="flex gap-1">
+                                    <span class="font-mono text-[9px] px-1.5 rounded border border-slate-300 bg-white text-slate-600">Python</span>
+                                    <span class="font-mono text-[9px] px-1.5 rounded border border-slate-300 bg-white text-slate-600">Streamlit</span>
+                                    <span class="font-mono text-[9px] px-1.5 rounded border border-slate-300 bg-white text-slate-600">Pandas</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-snug">
+                                App em Python/Streamlit que extrai links e metadados de vídeos ou playlists do YouTube via yt-dlp e gera CSV com título e URL.
+                            </p>
+                        </div>
+
+                        <!-- Projeto 2 -->
+                        <div class="group border-t border-slate-100 pt-2">
+                            <div class="flex justify-between items-start mb-0.5">
+                                <h3 class="font-bold text-sm text-slate-900">Prátika Ferragista Online (SPA)</h3>
+                                <span class="text-[10px] font-mono text-slate-500">React • Vite • Tailwind</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-snug">
+                                SPA de e-commerce responsiva com integração ao catálogo via Google Sheets API e finalização de compra por WhatsApp.
+                            </p>
+                            <p class="text-[10px] text-slate-500 mt-1">
+                                <a href="https://vitaledev.github.io/pratika-ferragista-online/" target="_blank" class="hover:text-primary transition">
+                                    GitHub Pages: vitaledev.github.io/pratika-ferragista-online
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- Projeto 3 -->
+                        <div class="group border-t border-slate-100 pt-2">
+                            <div class="flex justify-between items-start mb-0.5">
+                                <h3 class="font-bold text-sm text-slate-900">Frutiger Pomodoro</h3>
+                                <span class="text-[10px] font-mono text-slate-500">HTML • Tailwind CSS • JavaScript</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-snug">
+                                Timer Pomodoro com estética Frutiger/Aero e interface web interativa.
+                            </p>
+                            <p class="text-[10px] text-slate-500 mt-1">
+                                <a href="https://vitaledev.github.io/frutiger-pomodoro/" target="_blank" class="hover:text-primary transition">
+                                    GitHub Pages: vitaledev.github.io/frutiger-pomodoro
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- Projeto 4 -->
+                        <div class="group border-t border-slate-100 pt-2">
+                            <div class="flex justify-between items-start mb-0.5">
+                                <h3 class="font-bold text-sm text-slate-900">Bot Discord Soundpad</h3>
+                                <span class="text-[10px] font-mono text-slate-500">Python • Discord.py • Java</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-snug">
+                                Bot de Discord para tocar áudios em canal de voz, controlado por interface Java via socket local.
+                            </p>
+                        </div>
+
+                        <!-- Projeto 5 -->
+                        <div class="group border-t border-slate-100 pt-2">
+                            <div class="flex justify-between items-start mb-0.5">
+                                <h3 class="font-bold text-sm text-slate-900">Site Vitale Geo</h3>
+                                <span class="text-[10px] font-mono text-slate-500">HTML • CSS • JavaScript</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-snug">
+                                Site multi-seções com páginas de blog, jogos e ferramentas, incluindo geração de sitemap.
+                            </p>
+                            <p class="text-[10px] text-slate-500 mt-1">
+                                <a href="https://vitaledev.github.io/site-vitale-geo/" target="_blank" class="hover:text-primary transition">
+                                    GitHub Pages: vitaledev.github.io/site-vitale-geo
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Experiência -->
+                <div class="flex-grow">
+                    <h2 class="text-sm font-bold text-slate-900 border-b-2 border-slate-200 pb-2 mb-3">
+                        <i class="fas fa-briefcase text-primary mr-2"></i> Experiência Profissional
+                    </h2>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Exp 1 -->
+                        <div>
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h3 class="text-sm font-bold text-slate-900">Software Developer (Autônomo)</h3>
+                                <span class="text-[10px] text-white bg-primary px-2 py-0.5 rounded font-bold">2025 - Presente</span>
+                            </div>
+                            <ul class="text-xs text-slate-600 list-disc list-inside leading-relaxed pl-1 space-y-0.5">
+                                <li>Desenvolvimento de aplicações web responsivas e SPAs com foco em experiência do usuário.</li>
+                                <li>Automação e organização de dados em Python com Streamlit, Pandas e integrações com APIs.</li>
+                                <li>Integração de IA (Gemini API) e uso de <strong>prompt engineering</strong> para prototipação e aceleração do desenvolvimento.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Exp 2 -->
+                        <div>
+                            <div class="flex justify-between items-baseline mb-1">
+                                <h3 class="text-sm font-bold text-slate-900">Digital Product Specialist</h3>
+                                <span class="text-[10px] text-slate-500 font-bold bg-slate-100 px-2 py-0.5 rounded">2018 - presente</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500 italic mb-1 pl-1">Foco: Design, Multimídia & Gestão de Projetos</p>
+                            <ul class="text-xs text-slate-600 list-disc list-inside leading-relaxed pl-1 space-y-0.5">
+                                <li>Gestão ágil de projetos digitais com foco em UX/UI e entrega de alta qualidade.</li>
+                                <li>Trabalho sob pressão com prazos rigorosos (SLA) em ambiente dinâmico.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+</body>
+</html>
