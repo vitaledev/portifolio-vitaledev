@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITALEDEV.EXE // SYSTEM</title>
+    <style>
+        :root {
+            --bg-deep: #02050a;
+            --win-bg: #050e1a;
+            --neon-green: #00ff41;
+            --neon-blue: #00d4ff;
+            --border-thick: 2px solid #ffffff;
+            --win-shadow: 10px 10px 0px rgba(0, 212, 255, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+            pointer-events: none; z-index: 1000;
+        }
+
+        .ui-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .top-header { text-align: center; margin-bottom: 40px; animation: flicker 2s infinite; }
+        .main-title {
+            font-size: 4rem;
+            text-shadow: 4px 4px var(--neon-blue), -2px -2px var(--neon-green);
+            text-transform: lowercase;
+        }
+
+        @keyframes flicker { 0% { opacity: 1; } 5% { opacity: 0.8; } 100% { opacity: 1; } }
+
+        /* --- DESKTOP: HORIZONTAL NO PC --- */
+        .desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .icon {
+            text-align: center;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            width: 120px;
+        }
+
+        .icon:hover { transform: scale(1.1) translateY(-5px); filter: drop-shadow(0 0 8px var(--neon-blue)); }
+
+        .icon-img {
+            width: 100px; height: 100px;
+            border: var(--border-thick);
+            background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px auto;
+            box-shadow: 6px 6px 0px var(--neon-blue);
+            overflow: hidden;
+        }
+
+        .pixel-icon { max-width: 80%; max-height: 80%; image-rendering: pixelated; }
+
+        .icon span {
+            font-size: 0.75rem; font-weight: bold; text-transform: uppercase;
+            background: #000; padding: 2px 5px; border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- JANELAS --- */
+        .window {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
+            width: 90%; max-width: 700px; height: 500px;
+            background: var(--win-bg); border: var(--border-thick); box-shadow: var(--win-shadow);
+            display: none; flex-direction: column; z-index: 2000;
+        }
+        .window.open { display: flex; animation: winOpen 0.3s forwards; }
+        @keyframes winOpen { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+
+        .win-header { background: #fff; color: #000; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .win-close { background: #000; color: #fff; border: none; padding: 2px 10px; cursor: pointer; }
+        .win-content { padding: 20px; overflow-y: auto; flex-grow: 1; }
+
+        .video-container { border: 2px solid #fff; background: #000; margin: 15px 0; aspect-ratio: 16/9; }
+        .random-btn, .github-btn {
+            background: #fff; color: #000; border: none; padding: 12px; width: 100%;
+            font-family: inherit; font-weight: bold; cursor: pointer; text-transform: uppercase;
+            text-align: center; text-decoration: none; display: block;
+        }
+        .random-btn:hover { background: var(--neon-green); }
+        .github-btn { background: transparent; border: 2px solid var(--neon-blue); color: var(--neon-blue); margin-top: 20px; }
+        .github-btn:hover { background: var(--neon-blue); color: #000; }
+
+        /* --- MASCOTE ANIMADO --- */
+        .character-container { 
+            position: fixed; bottom: 20px; right: 20px; z-index: 5000; cursor: pointer;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .mascot-img { 
+            width: 140px; 
+            image-rendering: pixelated;
+            filter: drop-shadow(0 0 10px var(--neon-blue)) drop-shadow(0 0 5px var(--neon-blue));
+            animation: mascotFloat 3s ease-in-out infinite;
+        }
+
+        .music-toggle-btn {
+            background: #ff0000; color: #fff; border: 1px solid #fff;
+            padding: 4px 12px; font-size: 0.7rem; font-weight: bold;
+            margin-top: -10px; box-shadow: 4px 4px 0px #000;
+            text-transform: uppercase;
+        }
+        .music-toggle-btn.playing { background: var(--neon-green); color: #000; }
+
+        @keyframes mascotFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- RESPONSIVIDADE MOBILE --- */
+        @media (max-width: 768px) {
+            .ui-wrapper { margin-top: -15vh; } /* Sobe os ícones no celular */
+            .main-title { font-size: 2.8rem; }
+            .top-header { position: absolute; bottom: 100%; margin-bottom: 25px; }
+            .desktop { display: grid; grid-template-columns: repeat(2, 130px); gap: 40px 25px; }
+            .icon-img { width: 110px; height: 110px; }
+            .character-container { bottom: 10px; right: 10px; scale: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="sound-open" src="open.mp3"></audio>
+    <audio id="sound-close" src="close.mp3"></audio>
+    <audio id="sound-hover" src="hover.mp3"></audio>
+    <audio id="rock-music" loop><source src="sua-musica-rock.mp3" type="audio/mpeg"></audio>
+
+    <div class="ui-wrapper">
+        <header class="top-header">
+            <h1 class="main-title">vitaledev.exe</h1>
+            <p style="font-size: 0.7rem; color: var(--neon-green);">[ SYSTEM VERSION 2026.4 ]</p>
+        </header>
+
+        <div class="desktop">
+            <div class="icon" onclick="openWindow('win-about')">
+                <div class="icon-img"><img src="img/icon/about.png" class="pixel-icon"></div>
+                <span>about.txt</span>
+            </div>
+            <div class="icon" onclick="openWindow('win-work')">
+                <div class="icon-img"><img src="img/icon/edits.png" class="pixel-icon"></div>
+                <span>edits.mp4</span>
+            </div>
+            <div class="icon" onclick="openWindow('win-dev')">
+                <div class="icon-img"><img src="img/icon/projects.png" class="pixel-icon"></div>
+                <span>projects.log</span>
+            </div>
+            <div class="icon" onclick="window.location.href='mailto:agnaldotgt@gmail.com'">
+                <div class="icon-img"><img src="img/icon/contact.png" class="pixel-icon"></div>
+                <span>contact.sys</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="win-about" class="window">
+        <div class="win-header">
+            <span>IDENTITY_LOG.TXT</span>
+            <button class="win-close" onclick="closeWindow('win-about')">[X]</button>
+        </div>
+        <div class="win-content">
+            <div style="border-bottom: 1px solid var(--neon-blue); padding-bottom: 10px; margin-bottom: 15px;">
+                <p style="color: var(--neon-blue); font-weight: bold;">USER_PROFILE: AGNALDO_BATISTA</p>
+                <p style="font-size: 0.7rem; opacity: 0.7;">STATUS: [ONLINE]</p>
+            </div>
+
+            <p>> <strong>PROFESSIONAL_CORE:</strong> Atuo como Editor de Vídeo, cuidando de todo o ciclo criativo: desde a concepção de ideias e roteiros até a postagem final.</p><br>
+
+            <p>> <strong>ACADEMIC_PATH:</strong> Estudante de Relações Internacionais.</p><br>
+
+            <p style="color: var(--neon-green)">> <strong>SYSTEM_UPGRADE (TI Transition):</strong></p>
+            <p>Em fase de transição para a área de Tecnologia da Informação, com foco em estudos de base matemática para desenvolvimento de sistemas.</p><br>
+
+            <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px;">
+                <p style="font-size: 0.7rem; color: var(--neon-blue);">[ SKILLS: EDIÇÃO // ROTEIRO // TECH_STUDENT ]</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="win-work" class="window">
+        <div class="win-header"><span>WORK_ARCHIVE.EXE</span><button class="win-close" onclick="closeWindow('win-work')">[X]</button></div>
+        <div class="win-content">
+            <p style="color: var(--neon-green); font-weight: bold;">> PROJETOS_EDITOR_DE_VIDEO</p>
+            <div class="video-container">
+                <iframe id="yt-player" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <button class="random-btn" onclick="getRandomVideo()">[ SORTEAR_VIDEO_ALEATORIO ]</button>
+        </div>
+    </div>
+
+    <div id="win-dev" class="window">
+        <div class="win-header"><span>DEV_PROJECTS.LOG</span><button class="win-close" onclick="closeWindow('win-dev')">[X]</button></div>
+        <div class="win-content">
+            <p style="color: var(--neon-green); font-weight: bold;">> C:\USERS\VITALEDEV\PROJECTS</p><br>
+            <p>- Interface Webcore Cybercore (HTML/CSS)</p>
+            <p>- Script Automação Python</p>
+            <p>- Desenvolvimento web</p>
+            <a href="https://github.com/vitaledev" target="_blank" class="github-btn">[ ACESSAR_MEU_GITHUB ]</a>
+        </div>
+    </div>
+
+    <div class="character-container" onclick="toggleRock()">
+        <img src="seu-mascote.gif" class="mascot-img">
+        <div id="music-btn" class="music-toggle-btn">MUSIC: OFF</div>
+    </div>
+
+    <footer style="position: fixed; bottom: 10px; font-size: 0.6rem; opacity: 0.4;">VITALEDEV_OS_v2 // POWERED BY IMAGINATION</footer>
+
+    <script>
+        function playSound(id) { const s = document.getElementById(id); if(s) { s.currentTime = 0; s.play().catch(e => {}); } }
+
+        function openWindow(id) {
+            playSound('sound-open');
+            const win = document.getElementById(id);
+            win.style.display = 'flex';
+            setTimeout(() => win.classList.add('open'), 10);
+            if(id === 'win-work') getRandomVideo();
+        }
+
+        function closeWindow(id) {
+            playSound('sound-close');
+            const win = document.getElementById(id);
+            win.classList.remove('open');
+            setTimeout(() => {
+                win.style.display = 'none';
+                if (id === 'win-work') { document.getElementById('yt-player').src = ""; }
+            }, 300);
+        }
+
+        const videos = ['iBM8Tl52PqM', '9NqG_5amPfo', 'LHANhd4PMYk', 'z3_bNZbQXzI']; 
+        function getRandomVideo() {
+            const id = videos[Math.floor(Math.random() * videos.length)];
+            const urlEmbed = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+            document.getElementById('yt-player').src = urlEmbed;
+        }
+
+        document.querySelectorAll('.icon').forEach(i => i.addEventListener('mouseenter', () => playSound('sound-hover')));
+
+        let rockOn = false;
+        function toggleRock() {
+            const m = document.getElementById('rock-music');
+            const btn = document.getElementById('music-btn');
+            if(!rockOn) {
+                m.play().catch(e => {});
+                btn.innerText = "MUSIC: ON";
+                btn.classList.add('playing');
+                rockOn = true;
+            } else {
+                m.pause();
+                btn.innerText = "MUSIC: OFF";
+                btn.classList.remove('playing');
+                rockOn = false;
+            }
+        }
+    </script>
+</body>
+</html>
